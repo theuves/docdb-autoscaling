@@ -1,4 +1,3 @@
-# docdb-autoscaling
 import boto3
 import uuid
 

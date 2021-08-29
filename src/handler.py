@@ -68,7 +68,7 @@ class DocumentDB:
       DBInstanceClass=self.get_primary_instance_class(),
       Engine="docdb",
     )
-  
+
   def remove_replica(self):
     replicas_count = self.get_replicas_count()
     

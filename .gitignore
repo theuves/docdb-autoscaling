@@ -1,6 +1,10 @@
 # Terraform
 .terraform
 terraform.tfstate
+terraform.tfstate.backup
 
 # Notes
 .idea
+
+# Build
+**/*.zip

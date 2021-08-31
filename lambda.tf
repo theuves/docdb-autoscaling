@@ -9,8 +9,8 @@ resource "aws_lambda_function" "main" {
 
   environment {
     variables = {
-      MIN_CAPACITY = tostring(var.min_capacity)
-      MAX_CAPACITY = tostring(var.max_capacity)
+      min_capacity = tostring(var.min_capacity)
+      max_capacity = tostring(var.max_capacity)
     }
   }
 

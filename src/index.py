@@ -1,10 +1,11 @@
+import os
 import boto3
 import uuid
 
 client = boto3.client('docdb')
 
-min_capacity = 0
-max_capacity = 2
+min_capacity = os.environ.get("min_capacity")
+max_capacity = os.environ.get("max_capacity")
 
 if min_capacity > max_capacity:
   print("min_capacity cannot be greater than max_capacity")

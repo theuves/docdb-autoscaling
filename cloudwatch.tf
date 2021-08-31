@@ -1,7 +1,7 @@
 locals {
   comparison_operators = {
-    "scale-out" = "GreaterThanThreshold"
-    "scale-in"  = "LessThanThreshold"
+    "scale-out" = "LessThanThreshold"
+    "scale-in"  = "GreaterThanThreshold"
   }
 }
 

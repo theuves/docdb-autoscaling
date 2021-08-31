@@ -9,8 +9,8 @@ resource "aws_lambda_function" "main" {
 
   environment {
     variables = {
-      min_capacity = tostring(var.min_capacity)
-      max_capacity = tostring(var.max_capacity)
+      min_capacity       = tostring(var.min_capacity)
+      max_capacity       = tostring(var.max_capacity)
       cluster_identifier = var.cluster_identifier
     }
   }

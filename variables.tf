@@ -5,7 +5,7 @@ locals {
 }
 
 variable "cluster_identifier" {
-  type = string
+  type        = string
   description = "DocumentDB cluster identifier."
 }
 
@@ -47,20 +47,26 @@ variable "max_capacity" {
 
 variable "scaling_policy" {
   type = list(object({
-    cloudwatch_metric = string
-    target = number
-    action = string
+    metric_name = string
+    target      = number
+    statistic   = string
+    cooldown    = number
+    action      = string
   }))
   default = [
     {
-      cloudwatch_metric = "value"
-      target = 60
-      action = "CPUUtilization"
+      metric_name = "CPUUtilization"
+      target      = 60
+      statistic   = "Average"
+      cooldown    = 120
+      action      = "scale-out"
     },
     {
-      cloudwatch_metric = "value"
-      target = 60
-      action = "CPUUtilization"
+      metric_name = "CPUUtilization"
+      target      = 60
+      statistic   = "Average"
+      cooldown    = 120
+      action      = "scale-in"
     }
   ]
 }

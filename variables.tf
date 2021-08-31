@@ -51,7 +51,6 @@ variable "scaling_policy" {
     target      = number
     statistic   = string
     cooldown    = number
-    action      = string
   }))
   default = [
     {
@@ -59,14 +58,6 @@ variable "scaling_policy" {
       target      = 60
       statistic   = "Average"
       cooldown    = 120
-      action      = "scale-out"
-    },
-    {
-      metric_name = "CPUUtilization"
-      target      = 60
-      statistic   = "Average"
-      cooldown    = 120
-      action      = "scale-in"
     }
   ]
 }

@@ -1,4 +1,3 @@
-# IAM role for AWS Lambda
 resource "aws_iam_role" "lambda" {
   name = "${var.name}-${local.region}-role"
 
@@ -17,8 +16,7 @@ resource "aws_iam_role" "lambda" {
   })
 }
 
-# IAM policy for AWS Lambda
-resource "aws_iam_policy" "lambda_logging" {
+resource "aws_iam_policy" "lambda" {
   name        = "lambda_logging"
   path        = "/"
   description = "IAM policy for logging from a lambda"
@@ -43,4 +41,9 @@ resource "aws_iam_policy" "lambda_logging" {
       }
     ]
   })
+}
+
+resource "aws_iam_role_policy_attachment" "lambda" {
+  role       = aws_iam_role.lambda.name
+  policy_arn = aws_iam_policy.lambda.arn
 }

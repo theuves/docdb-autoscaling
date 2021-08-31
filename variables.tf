@@ -4,13 +4,17 @@ locals {
   output_path = "${path.module}/.files/init.zip"
 }
 
+variable "cluster_identifier" {
+  type = string
+  description = "DocumentDB cluster identifier."
+}
+
 variable "name" {
   type        = string
   default     = "docdb-autoscaling"
   description = "Resources name."
 }
 
-# Minimum capacity
 variable "min_capacity" {
   type        = number
   default     = 0
@@ -29,7 +33,6 @@ variable "min_capacity" {
   }
 }
 
-# Maximum capacity
 variable "max_capacity" {
   type        = number
   default     = 15
@@ -40,4 +43,24 @@ variable "max_capacity" {
     condition     = var.max_capacity <= 15
     error_message = "DocumentDB does not allow more than 15 replica instances."
   }
+}
+
+variable "scaling_policy" {
+  type = list(object({
+    cloudwatch_metric = string
+    target = number
+    action = string
+  }))
+  default = [
+    {
+      cloudwatch_metric = "value"
+      target = 60
+      action = "CPUUtilization"
+    },
+    {
+      cloudwatch_metric = "value"
+      target = 60
+      action = "CPUUtilization"
+    }
+  ]
 }

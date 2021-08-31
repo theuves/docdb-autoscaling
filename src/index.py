@@ -4,8 +4,10 @@ import uuid
 
 client = boto3.client('docdb')
 
+# Environment variables
 min_capacity = os.environ.get("min_capacity")
 max_capacity = os.environ.get("max_capacity")
+cluster_identifier = os.environ.get("cluster_identifier")
 
 if min_capacity > max_capacity:
   print("min_capacity cannot be greater than max_capacity")
@@ -15,10 +17,10 @@ class DocumentDB:
   def __init__(self, db_cluster_id):
     self.db_cluster_id = db_cluster_id
 
-    # needed to know what is the 'primary instance'
+    # Needed to know what is the 'primary instance'
     self.db_clusters = client.describe_db_clusters(DBClusterIdentifier=db_cluster_id)
 
-    # needed to know the instance class
+    # Needed to know the instance class
     self.db_instances = client.describe_db_instances(
       Filters=[{
         'Name': 'db-cluster-id',
@@ -49,7 +51,7 @@ class DocumentDB:
           if cluster_member.get('DBInstanceIdentifier') == db_instance.get('DBInstanceIdentifier'):
             return db_instance.get('DBInstanceClass')
     
-    # in theory this block never can be executed
+    # In theory this block never can be executed
     return 'db.r5.large'
 
   def add_replica(self):
@@ -84,7 +86,7 @@ class DocumentDB:
     db_cluster_members = self.db_clusters.get('DBClusters')[0].get('DBClusterMembers')
 
     for cluster_member in db_cluster_members:
-      # remove the first replica instance found
+      # Remove the first replica instance found
       if not cluster_member.get('IsClusterWriter'):
         return client.delete_db_instance(
           DBInstanceIdentifier=cluster_member.get('DBInstanceIdentifier')

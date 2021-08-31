@@ -1,3 +1,9 @@
+# Lambda function logs
+resource "aws_cloudwatch_log_group" "main" {
+  name              = "/aws/lambda/${var.name}"
+  retention_in_days = 7
+}
+
 # Scale-out and scale-in alarm
 resource "aws_cloudwatch_metric_alarm" "main" {
   count = length(var.scaling_policy)

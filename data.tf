@@ -4,3 +4,6 @@ data "archive_file" "source_code" {
   source_dir  = "${path.module}/src"
   output_path = local.output_path
 }
+
+# Get current region
+data "aws_region" "current" {}

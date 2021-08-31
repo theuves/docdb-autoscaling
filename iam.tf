@@ -1,3 +1,4 @@
+# IAM role for AWS Lambda
 resource "aws_iam_role" "lambda" {
   name = "${var.lambda_name}-role"
 

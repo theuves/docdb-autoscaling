@@ -24,7 +24,7 @@ variable "min_capacity" {
 
   # Source: https://docs.aws.amazon.com/documentdb/latest/developerguide/how-it-works.html
   validation {
-    condition     = var.max_capacity <= 15
+    condition     = var.min_capacity <= 15
     error_message = "DocumentDB does not allow more than 15 replica instances."
   }
 }

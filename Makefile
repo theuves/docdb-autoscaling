@@ -1,4 +1,7 @@
-all: fmt
+all: validate fmt
+
+validate:
+	terraform validate
 
 fmt:
 	terraform fmt -recursive

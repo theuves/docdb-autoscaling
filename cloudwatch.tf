@@ -3,7 +3,7 @@ resource "aws_cloudwatch_metric_alarm" "main" {
   count = length(var.scaling_policy)
 
   alarm_name          = "${var.name}-${count.index}"
-  comparison_operator = "LessThanThreshold"
+  comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = "1"
   namespace           = "AWS/DocDB"
   metric_name         = var.scaling_policy[count.index].metric_name

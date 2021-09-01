@@ -17,9 +17,8 @@ resource "aws_iam_role" "lambda" {
 }
 
 resource "aws_iam_policy" "lambda" {
-  name        = "lambda_logging"
+  name        = "${var.name}-${local.region}-policy"
   path        = "/"
-  description = "IAM policy for logging from a lambda"
 
   policy = jsonencode({
     Version: "2012-10-17",

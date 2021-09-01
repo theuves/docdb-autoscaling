@@ -15,8 +15,16 @@ resource "aws_lambda_function" "main" {
     }
   }
 
-  # Wait for the .zip file 
   depends_on = [
+    aws_cloudwatch_log_group.main,
     data.archive_file.source_code
   ]
+}
+
+resource "aws_lambda_permission" "sns" {
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.main.arn
+  principal     = "sns.amazonaws.com"
+  statement_id  = "AllowSubscriptionToSNS"
+  source_arn    = aws_sns_topic.main.arn
 }

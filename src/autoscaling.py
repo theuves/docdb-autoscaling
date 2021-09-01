@@ -1,5 +1,6 @@
 import boto3
 import uuid
+import logging
 
 client = boto3.client('docdb')
 
@@ -112,11 +113,11 @@ class DocumentDB:
     replicas_count = self.get_replicas_count()
 
     if replicas_count >= self.max_capacity:
-      print("maximum capacity reached")
+      logging.error("Maximum capacity reached.")
       return None
 
     if self.is_modifying():
-      print("is modifying")
+      logging.error("Is modifying.")
       return None
 
     return client.create_db_instance(
@@ -133,11 +134,11 @@ class DocumentDB:
     replicas_count = self.get_replicas_count()
     
     if replicas_count <= self.min_capacity:
-      print('minimum capacity reached')
+      logging.error('Minimum capacity reached.')
       return None
     
     if self.is_modifying():
-      print("is modifying")
+      logging.error("Is modifying.")
       return None
 
     db_cluster_members = self.db_clusters.get('DBClusters')[0].get('DBClusterMembers')

@@ -2,7 +2,7 @@
 
 An auto-scaling solution for Amazon DocumentDB.
 
-> "Amazon DocumentDB (with MongoDB compatibility) is a database service that is purpose-built for JSON data management at scale, fully managed and integrated with AWS, and enterprise-ready with high durability." ([read more](https://aws.amazon.com/documentdb/))
+[Amazon DocumentDB (with MongoDB compatibility)](https://aws.amazon.com/documentdb/) supports up to 15 Read Replicas, but by default AWS does not provide an easy way to set up an auto-scaling policy for them.
 
 ## Solution
 

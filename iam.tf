@@ -37,6 +37,18 @@ resource "aws_iam_policy" "lambda" {
         ],
         Resource: "${aws_cloudwatch_log_group.main.arn}:*:*",
         Effect: "Allow"
+      },
+      {
+        Action: [
+          "rds:DescribeDBInstances",
+          "rds:DescribeDBClusters",
+          "rds:CreateDBInstance",
+          "rds:DeleteDBInstance"
+        ],
+        Effect: "Allow",
+        Resource: [
+          "arn:aws:rds:${local.region}:${local.account_id}:*"
+        ]
       }
     ]
   })

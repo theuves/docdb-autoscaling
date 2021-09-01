@@ -106,7 +106,7 @@ class DocumentDB:
     # In theory this block never can be executed
     return 'db.r5.large'
 
-  def add_replica(self):
+  def add_replica(self, ignore_status=False):
     """
     Add one read replica.
     """
@@ -116,7 +116,7 @@ class DocumentDB:
       logging.error("Maximum capacity reached.")
       return None
 
-    if self.is_modifying():
+    if not ignore_status and self.is_modifying():
       logging.error("Is modifying.")
       return None
 
@@ -127,7 +127,7 @@ class DocumentDB:
       Engine="docdb",
     )
 
-  def remove_replica(self):
+  def remove_replica(self, ignore_status=False):
     """
     Remove one read replica.
     """
@@ -137,7 +137,7 @@ class DocumentDB:
       logging.error('Minimum capacity reached.')
       return None
     
-    if self.is_modifying():
+    if not ignore_status and self.is_modifying():
       logging.error("Is modifying.")
       return None
 

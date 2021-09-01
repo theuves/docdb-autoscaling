@@ -109,6 +109,11 @@ class DocumentDB:
   def add_replica(self, ignore_status=False):
     """
     Add one read replica.
+
+    Parameters
+    ----------
+    ignore_status : bool
+      Ignore the cluster status.
     """
     replicas_count = self.get_replicas_count()
 
@@ -130,6 +135,11 @@ class DocumentDB:
   def remove_replica(self, ignore_status=False):
     """
     Remove one read replica.
+
+    Parameters
+    ----------
+    ignore_status : bool
+      Ignore the cluster status.
     """
     replicas_count = self.get_replicas_count()
     

@@ -1,5 +1,8 @@
 # docdb-autoscaling
 
+[![Terraform](https://github.com/theuves/docdb-autoscaling/actions/workflows/terraform.yml/badge.svg)](https://github.com/theuves/docdb-autoscaling/actions/workflows/terraform.yml)
+[![License](https://img.shields.io/github/license/theuves/docdb-autoscaling)](https://github.com/theuves/docdb-autoscaling/blob/master/LICENSE)
+
 An auto-scaling solution for Amazon DocumentDB.
 
 This project is an [AWS Lambda](https://aws.amazon.com/lambda/) written in Python and deployed with [Terraform](https://www.terraform.io/) that easily implements auto-scaling functionality for [Amazon DocumentDB](https://aws.amazon.com/documentdb/).

@@ -17,36 +17,36 @@ resource "aws_iam_role" "lambda" {
 }
 
 resource "aws_iam_policy" "lambda" {
-  name        = "${var.name}-${local.region}-policy"
-  path        = "/"
+  name = "${var.name}-${local.region}-policy"
+  path = "/"
 
   policy = jsonencode({
-    Version: "2012-10-17",
-    Statement: [
+    Version : "2012-10-17",
+    Statement : [
       {
-        Action: [
+        Action : [
           "logs:CreateLogStream",
           "logs:CreateLogGroup"
         ],
-        Resource: "${aws_cloudwatch_log_group.main.arn}:*",
-        Effect: "Allow"
+        Resource : "${aws_cloudwatch_log_group.main.arn}:*",
+        Effect : "Allow"
       },
       {
-        Action: [
+        Action : [
           "logs:PutLogEvents"
         ],
-        Resource: "${aws_cloudwatch_log_group.main.arn}:*:*",
-        Effect: "Allow"
+        Resource : "${aws_cloudwatch_log_group.main.arn}:*:*",
+        Effect : "Allow"
       },
       {
-        Action: [
+        Action : [
           "rds:DescribeDBInstances",
           "rds:DescribeDBClusters",
           "rds:CreateDBInstance",
           "rds:DeleteDBInstance"
         ],
-        Effect: "Allow",
-        Resource: [
+        Effect : "Allow",
+        Resource : [
           "arn:aws:rds:${local.region}:${local.account_id}:*"
         ]
       }

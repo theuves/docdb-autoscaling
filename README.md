@@ -11,7 +11,7 @@ This project is an [AWS Lambda](https://aws.amazon.com/lambda/) written in Pytho
 
 Amazon DocumentDB (with MongoDB compatibility) supports [up to 15 read replicas](https://docs.aws.amazon.com/documentdb/latest/developerguide/replication.html), but by default AWS does not provide an easy way to set up an auto-scaling policy for them.
 
-## The Solution
+## The solution
 
 Follow below how the system works:
 

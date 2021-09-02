@@ -53,6 +53,7 @@ variable "scaling_policy" {
     statistic   = string
     cooldown    = number
   }))
+  description = "The auto-scaling policy."
   default = [
     {
       metric_name = "CPUUtilization"

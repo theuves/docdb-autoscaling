@@ -1,4 +1,4 @@
-# SNS topic (trigged by CloudWathc)
+# SNS topic (trigged by CloudWatch)
 resource "aws_sns_topic" "main" {
   name = var.name
 }

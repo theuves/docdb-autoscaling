@@ -1,3 +1,19 @@
+> [!WARNING]
+> **Reference only — no longer maintained**
+>
+> This source code has not been updated since 2021. Due to changes in AWS services,
+> Terraform providers, APIs, and runtime dependencies, it may no longer work as
+> originally intended. The project is preserved solely as a reference and should
+> be carefully reviewed, updated, and tested before being used in any environment.
+>
+> **AWS consulting**
+>
+> Need help designing, reviewing, or improving your AWS infrastructure? I offer AWS
+> consulting services. [Contact me through this form](https://esyyuh0nxyf.typeform.com/to/fG1XDrpT)
+> to discuss your project.
+
+***
+
 # docdb-autoscaling
 
 [![Terraform](https://github.com/theuves/docdb-autoscaling/actions/workflows/terraform.yml/badge.svg)](https://github.com/theuves/docdb-autoscaling/actions/workflows/terraform.yml)
@@ -6,20 +22,6 @@
 An auto-scaling solution for Amazon DocumentDB.
 
 This project is an [AWS Lambda](https://aws.amazon.com/lambda/) written in Python and deployed with [Terraform](https://www.terraform.io/) that easily implements auto-scaling functionality for [Amazon DocumentDB](https://aws.amazon.com/documentdb/).
-
-> [!WARNING]
-> **Reference only — no longer maintained**
->
-> This source code has not been updated since 2021. Due to changes in AWS services,
-> Terraform providers, APIs, and runtime dependencies, it may no longer work as
-> originally intended. The project is preserved solely as a reference and should
-> be carefully reviewed, updated, and tested before being used in any environment.
-
-## AWS consulting
-
-Need help designing, reviewing, or improving your AWS infrastructure? I offer AWS
-consulting services. [Contact me through this form](https://esyyuh0nxyf.typeform.com/to/fG1XDrpT)
-to discuss your project.
 
 ## Why?
 
